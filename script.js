@@ -98,12 +98,11 @@ if (spotifyLoginBtn) {
 
 // Map heartbeat identifiers to Spotify URIs
 const rhythmTracks = {
-    normal: "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", // replace with NSR song
+    normal: "spotify:track:0T5iIrXA4p5GsubkhuBIKV?si=465dd48da7654532", // replace with NSR song
     tachy: "spotify:track:5CQ30WqJwcep0pYcV4AMNc", // tachycardia
     brady: "spotify:track:4RVwu0g32PAqgUiJoXOk4j", // bradycardia
     // add your other rhythms here
 };
-
 let player;
 let accessToken = localStorage.getItem("spotify_access_token");
 
