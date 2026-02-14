@@ -8,112 +8,115 @@
 </head>
 <body>
 
-   <div class="header">
-    <h1 id="pageTitle">Pick a Heartbeat for Your Love ❤️</h1>
-    <p id="instruction">Click on a rhythm below and let the music match its beat!</p>
-    
-    <!-- Spotify Login Button -->
-    <button id="spotifyLogin">Connect Spotify 🎵</button>
-</div>
-<div class="card" onclick="selectRhythm('normal')">
-    <div class="card-img">
-        <img src="images/normalsinusrhytm.png" alt="Normal Sinus Rhythm">
-    </div>
-    <div class="card-title">Normal Sinus Rhythm</div>
+<div class="header">
+    <h1 id="pageTitle">Diagnose my heart 🫀</h1>
+    <p id="instruction">Select a rhythm to hear how you make it feel</p>
 </div>
 
-<div class="card" onclick="selectRhythm('tachy')">
-    <div class="card-img">
-        <img src="images/sinus tachycardia.png" alt="Sinus Tachycardia">
-    </div>
-    <div class="card-title">Sinus Tachycardia</div>
-</div>
+<div class="grid-container">
 
-<div class="card" onclick="selectRhythm('brady')">
-    <div class="card-img">
-        <img src="images/sinusbradycardia.png" alt="Sinus Bradycardia">
+    <!-- Example card with Spotify embed container -->
+    <div class="card" onclick="playEmbed('normal', '6ci1COpgwK4IHZMqCZcehj')">
+        <div class="card-img">
+            <img src="images/normalsinusrhytm.png" alt="Normal Sinus Rhythm">
+        </div>
+        <div class="card-title">Normal Sinus Rhythm</div>
+        <div class="embed-container" id="embed-normal"></div>
     </div>
-    <div class="card-title">Sinus Bradycardia</div>
-</div>
 
-<div class="card" onclick="selectRhythm('accelerated-junctional')">
-    <div class="card-img">
-        <img src="images/Accelerated Junctional Rhythm.png" alt="accelerated-junctional">
+    <div class="card" onclick="playEmbed('tachy', '4mq9axJx94IddXN5fq4hMw')">
+        <div class="card-img">
+            <img src="images/sinus tachycardia.png" alt="Sinus Tachycardia">
+        </div>
+        <div class="card-title">Sinus Tachycardia</div>
+        <div class="embed-container" id="embed-tachy"></div>
     </div>
-    <div class="card-title">Accelerated Junctional Rhythm</div>
-</div>
 
-<div class="card" onclick="selectRhythm('atrial-rhythm')">
-    <div class="card-img">
-        <img src="images/Atrial Rhythm.png" alt="atrial-rhythm">
+    <div class="card" onclick="playEmbed('brady', '7fyNPG0jREt01ue1KSbKIh')">
+        <div class="card-img">
+            <img src="images/sinusbradycardia.png" alt="Sinus Bradycardia">
+        </div>
+        <div class="card-title">Sinus Bradycardia</div>
+        <div class="embed-container" id="embed-brady"></div>
     </div>
-    <div class="card-title">Atrial Rhythm</div>
-</div>
 
-<div class="card" onclick="selectRhythm('afib')">
-    <div class="card-img">
-        <img src="images/Atrial Fibrillation.png" alt="afib">
+    <!-- Add more cards for other rhythms -->
+    <!-- Accelerated Junctional -->
+    <div class="card" onclick="playEmbed('accelerated', '3FeW4EODX603qpeSVPZJsV')">
+        <div class="card-img">
+            <img src="images/Accelerated Junctional Rhythm.png" alt="Accelerated Junctional Rhythm">
+        </div>
+        <div class="card-title">Accelerated Junctional Rhythm</div>
+        <div class="embed-container" id="embed-accelerated"></div>
     </div>
-    <div class="card-title">Atrial Fibrillation</div>
-</div>
 
-<div class="card" onclick="selectRhythm('atrial-flutter')">
+    <!-- Atrial Rhythm -->
+    <div class="card" onclick="playEmbed('atrial', '5Dv0YXtMrrAbC5ab0yUQvz')">
+        <div class="card-img">
+            <img src="images/Atrial Rhythm.png" alt="Atrial Rhythm">
+        </div>
+        <div class="card-title">Atrial Rhythm</div>
+        <div class="embed-container" id="embed-atrial"></div>
+    </div>
+
+    <!-- Atrial Fibrillation -->
+    <div class="card" onclick="playEmbed('afib', '49fbsooOytUe213rDD3iQq')">
+        <div class="card-img">
+            <img src="images/Atrial Fibrillation.png" alt="Atrial Fibrillation">
+        </div>
+        <div class="card-title">Atrial Fibrillation</div>
+        <div class="embed-container" id="embed-afib"></div>
+    </div>
+
+    <div class="card" onclick="playEmbed('atrial-flutter', '20Nc9amM3CdiBG9OiMZRIn')">
     <div class="card-img">
         <img src="images/atrial flutter.png" alt="atrial-flutter">
     </div>
     <div class="card-title">Atrial Flutter</div>
+     <div class="embed-container" id="embed-atrial-flutter"></div>
 </div>
 
-<div class="card" onclick="selectRhythm('pac')">
+<div class="card" onclick="playEmbed('pac', '5Wcr1APSBlqhkrdCTSGZ1t')">
     <div class="card-img">
         <img src="images/Premature Atrial Contractions.png" alt="pac">
     </div>
     <div class="card-title">Premature Atrial Contractions</div>
+     <div class="embed-container" id="embed-pac"></div>
 </div>
 
-<div class="card" onclick="selectRhythm('pvc')">
+<div class="card"  onclick="playEmbed('pvc', '5ZaIKOwrfa1gAF3PwHCPrr')">
     <div class="card-img">
         <img src="images/Premature Ventricular Contractions.png" alt="pvc">
     </div>
     <div class="card-title">Premature Ventricular Contractions</div>
+    <div class="embed-container" id="embed-pvc"></div>
+
 </div>
 
-<div class="card" onclick="selectRhythm('vtach')">
+<div class="card"  onclick="playEmbed('vtach', '2oxR0i29FWUGImuNqXwzsV')">
     <div class="card-img">
         <img src="images/Ventricular Tachycardia.png" alt="vtach">
     </div>
     <div class="card-title">Ventricular Tachycardia</div>
+    <div class="embed-container" id="embed-vtach"></div>
 </div>
 
-<div class="card" onclick="selectRhythm('wandering')">
+<div class="card" onclick="playEmbed('wandering', '1rKzWDKshamEK3HsLirwy7')">
     <div class="card-img">
         <img src="images/Wandering Pacemaker.png" alt="wandering">
     </div>
     <div class="card-title">Wandering Pacemaker</div>
+    <div class="embed-container" id="embed-wandering"></div>
 </div>
 
-<div class="card" onclick="selectRhythm('mat')">
+<div class="card" onclick="playEmbed('mat', '2oR0kcHOqjOf37k1Zbg24V')">
     <div class="card-img">
         <img src="images/Multifocal Atrial Tachycardia.png" alt="mat">
     </div>
     <div class="card-title">Multifocal Atrial Tachycardia</div>
+    <div class="embed-container" id="embed-mat"></div>
 </div>
-    
-
-
-
-    <!-- <div class="card" onclick="selectRhythm('av-block-ii')">
-        <div class="card-img">⚡</div>
-        <div class="card-title">Second-degree AV Block (Mobitz I & II)</div>
-    </div>
-
-    <div class="card" onclick="selectRhythm('av-block-iii')">
-        <div class="card-img">💀</div>
-        <div class="card-title">Third-degree (Complete) AV Block</div>
-    </div> -->
 </div>
-
-
 
 <script src="script.js"></script>
 </body>

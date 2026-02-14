@@ -66,86 +66,38 @@ if (nextBtn) {
     });
 }
 
-/* --------------------- Spotify Login --------------------- */
-const clientId = "a7f13b5dd0bc4822b1f911f9235914ec"; // Spotify dashboard
-const redirectUri = "https://daphnigeorge.github.io/valentine/callback.html";
+/* --------------------- Rhythm → Spotify Embed --------------------- */
 
-const scopes = [
-    "streaming",
-    "user-read-email",
-    "user-read-private",
-    "user-modify-playback-state",
-    "user-read-playback-state"
-];
-
-// Only attach listener if the button exists
-const spotifyLoginBtn = document.getElementById("spotifyLogin");
-if (spotifyLoginBtn) {
-    spotifyLoginBtn.addEventListener("click", () => {
-        const authUrl =
-            "https://accounts.spotify.com/authorize?" +
-            "response_type=code" +
-            "&client_id=" + encodeURIComponent(clientId) +
-            "&scope=" + encodeURIComponent(scopes.join(" ")) +
-            "&redirect_uri=" + encodeURIComponent(redirectUri) +
-            "&show_dialog=true";
-
-        window.location.href = authUrl;
-    });
-}
-
-/* --------------------- Rhythm → Spotify Track --------------------- */
-
-// Map heartbeat identifiers to Spotify URIs (example songs)
+// Map heartbeat identifiers to Spotify track IDs (embed previews)
 const rhythmTracks = {
-    "normal": "spotify:track:0T5iIrXA4p5GsubkhuBIKV", // Normal Sinus Rhythm ~75 BPM
-    "tachy": "spotify:track:5CQ30WqJwcep0pYcV4AMNc", // Sinus tachycardia
-    "brady": "spotify:track:4RVwu0g32PAqgUiJoXOk4j", // Sinus bradycardia
-    "accelerated": "spotify:track:2cGgO1v5cRr6YjhxXw9eN6", // Accelerated junctional rhythm
-    "atrial": "spotify:track:3MHaRzls7E4EUnkTnE7y3y", // Atrial rhythm
-    "afib": "spotify:track:6rqhFgbbKwnb9MLmUQDhG6", // Atrial fibrillation
-    "flutter": "spotify:track:1hKdDCpiI9mqz1jVHRKG0E", // Atrial flutter
-    "pac": "spotify:track:0TnOYISbd1XYRBk9myaseg", // Premature atrial contractions
-    "pvc": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp", // Premature ventricular contractions
-    "vtach": "spotify:track:6KT8x5oqZJn4Wv6jK9N6jv", // Ventricular tachycardia
-    "wandering": "spotify:track:1lDWb6b6ieDQ2xT7ewTC3G", // Wandering pacemaker
-    "multifocal": "spotify:track:3twNvmDtFQtAd5gMKedhLD", // Multifocal atrial tachycardia
-
+    "normal": "0T5iIrXA4p5GsubkhuBIKV?si=b0cd28b238824b9f",
+    "tachy": "5CQ30WqJwcep0pYcV4AMNc",
+    "brady": "4RVwu0g32PAqgUiJoXOk4j",
+    "accelerated": "2cGgO1v5cRr6YjhxXw9eN6",
+    "atrial": "3MHaRzls7E4EUnkTnE7y3y",
+    "afib": "6rqhFgbbKwnb9MLmUQDhG6",
+    "flutter": "1hKdDCpiI9mqz1jVHRKG0E",
+    "pac": "0TnOYISbd1XYRBk9myaseg",
+    "pvc": "3n3Ppam7vgaVa1iaRUc9Lp",
+    "vtach": "6KT8x5oqZJn4Wv6jK9N6jv",
+    "wandering": "1lDWb6b6ieDQ2xT7ewTC3G",
+    "multifocal": "3twNvmDtFQtAd5gMKedhLD"
 };
 
-let player;
-let accessToken = localStorage.getItem("spotify_access_token");
+// Function to display Spotify embed for selected rhythm
+function playEmbed(rhythmId, trackId) {
+    // Remove any existing embeds
+    document.querySelectorAll('.embed-container iframe').forEach(e => e.remove());
 
-async function setupSpotifyPlayer() {
-    if (!accessToken) return;
+    // Insert new iframe in the matching container
+    const container = document.getElementById(`embed-${rhythmId}`);
+    if (!container) return;
 
-    window.onSpotifyWebPlaybackSDKReady = () => {
-        player = new Spotify.Player({
-            name: "Valentine Heartbeats",
-            getOAuthToken: cb => { cb(accessToken); },
-            volume: 0.5
-        });
-
-        player.connect();
-    };
-}
-
-// Call once page loads
-setupSpotifyPlayer();
-
-async function selectRhythm(rhythm) {
-    const trackUri = rhythmTracks[rhythm];
-    if (!trackUri) return alert("No track set for this rhythm!");
-    if (!player) return alert("Spotify not connected. Please log in.");
-
-    await fetch(`https://api.spotify.com/v1/me/player/play`, {
-        method: "PUT",
-        body: JSON.stringify({ uris: [trackUri] }),
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`
-        }
-    });
-
-    console.log(`Playing ${rhythm} track...`);
-}
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://open.spotify.com/embed/track/${trackId}`;
+    iframe.width = "300";
+    iframe.height = "80";
+    iframe.frameBorder = "0";
+    iframe.allow = "autoplay; encrypted-media";
+    container.appendChild(iframe);
+} 
