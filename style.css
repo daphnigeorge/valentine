@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    background: black;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Background heart */
+.heart-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+
+    width: 420px;
+    height: 380px;
+
+    background: radial-gradient(circle at center, rgba(255,0,60,0.35), rgba(0,0,0,0) 70%);
+    animation: beat 0.86s infinite ease-in-out; /* ~70 bpm */
+    filter: blur(6px);
+    opacity: 0.45;
+}
+
+
+/* top circles */
+.heart-bg::before,
+.heart-bg::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 540px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart-bg::before {
+    top: -300px;
+    left: 0;
+}
+
+.heart-bg::after {
+    left: 300px;
+    top: 0;
+}
+
+/* subtle pulse */
+@keyframes beat {
+    0%   { transform: scale(1) rotate(-45deg); opacity: 0.25; }
+    15%  { transform: scale(1.08) rotate(-45deg); opacity: 0.4; }
+    30%  { transform: scale(1) rotate(-45deg); opacity: 0.3; }
+    45%  { transform: scale(1.05) rotate(-45deg); opacity: 0.4; }
+    60%  { transform: scale(1) rotate(-45deg); opacity: 0.3; }
+    100% { transform: scale(1) rotate(-45deg); opacity: 0.25; }
+}
+
+#message {
+    position: absolute;
+    color: white;
+    font-family: 'Great Vibes', cursive;
+    font-size: 78px;
+    text-align: center;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+    max-width: 900px;
+
+    line-height: 1.4;
+    word-spacing: 12px;
+    letter-spacing: 3px;
+
+
+    opacity: 0;
+    transition: opacity 2s ease;
+
+    text-shadow:
+        0 0 14px rgba(255, 120, 160, 0.8),
+        0 0 40px rgba(255, 60, 120, 0.5);
+}
+
+#nextBtn {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: transparent;
+    border: 1px solid rgba(255,120,160,0.6);
+    color: rgba(255,180,200,0.9);
+
+    padding: 12px 26px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    letter-spacing: 2px;
+
+    border-radius: 40px;
+    cursor: pointer;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 2s ease, transform 0.3s ease;
+}
+
+#nextBtn:hover {
+    transform: translateX(-50%) scale(1.08);
+    box-shadow: 0 0 20px rgba(255,120,160,0.5);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 50px 30px; /* vertical 50px, horizontal 30px */
+    width: 90%;
+    margin: 60px auto 80px auto;
+    justify-items: center;
+    align-items: start;
+}
+
+
+
+
+.card {
+    background: rgba(255, 0, 80, 0.15);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    height: 300px;
+    width: 90%; /* cards stay a bit smaller than column for spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 60, 140, 0.6);
+}
+
+.card-img img {
+    width: 100%;      /* makes image fit card width */
+    height: 180px;    /* keeps image height consistent */
+    object-fit: cover; /* crops if needed */
+    border-radius: 15px; /* rounded corners */
+    filter: drop-shadow(0 0 20px rgba(255, 0, 80, 0.7)); /* keeps the glow */
+}
+
+.card-title {
+    color: white;
+    font-family: 'Great Vibes', cursive;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.header {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#pageTitle {
+    color: white;
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255, 100, 150, 0.7);
+}
+
+#instruction {
+    color: rgba(255, 180, 200, 0.9);
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-top: 12px;
+}
+
+
+
+

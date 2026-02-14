@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heartbeat Selector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+    <h1 id="pageTitle">Pick a Heartbeat for Your Love ❤️</h1>
+    <p id="instruction">Click on a rhythm below and let the music match its beat!</p>
+</div>
+
+<div class="grid-container">
+    <div class="card" onclick="selectRhythm('normal')">
+    <div class="card-img">
+        <img src="images/normalsinusrhytm.png" alt="Normal Sinus Rhythm">
+    </div>
+    <div class="card-title">Normal Sinus Rhythm</div>
+</div>
+
+
+  <div class="card" onclick="selectRhythm('tachy')">
+    <div class="card-img">
+        <img src="images/sinus tachycardia.png" alt="Sinus Tachycardia">
+    </div>
+    <div class="card-title">Sinus Tachycardia</div>
+</div>
+
+<div class="card" onclick="selectRhythm('brady')">
+    <div class="card-img">
+        <img src="images/sinusbradycardia.png" alt="Sinus Bradycardia">
+    </div>
+    <div class="card-title">Sinus Bradycardia</div>
+</div>
+
+<div class="card" onclick="selectRhythm('accelerated-junctional')">
+    <div class="card-img">
+        <img src="images/Accelerated Junctional Rhythm.png" alt="accelerated-junctional">
+    </div>
+    <div class="card-title">Accelerated Junctional Rhythm</div>
+</div>
+
+<div class="card" onclick="selectRhythm('atrial-rhythm')">
+    <div class="card-img">
+        <img src="images/Atrial Rhythm.png" alt="atrial-rhythm">
+    </div>
+    <div class="card-title">Atrial Rhythm</div>
+</div>
+
+<div class="card" onclick="selectRhythm('afib')">
+    <div class="card-img">
+        <img src="images/Atrial Fibrillation.png" alt="afib">
+    </div>
+    <div class="card-title">Atrial Fibrillation</div>
+</div>
+
+<div class="card" onclick="selectRhythm('atrial-flutter')">
+    <div class="card-img">
+        <img src="images/atrial flutter.png" alt="atrial-flutter">
+    </div>
+    <div class="card-title">Atrial Flutter</div>
+</div>
+
+<div class="card" onclick="selectRhythm('pac')">
+    <div class="card-img">
+        <img src="images/Premature Atrial Contractions.png" alt="pac">
+    </div>
+    <div class="card-title">Premature Atrial Contractions</div>
+</div>
+
+<div class="card" onclick="selectRhythm('pvc')">
+    <div class="card-img">
+        <img src="images/Premature Ventricular Contractions.png" alt="pvc">
+    </div>
+    <div class="card-title">Premature Ventricular Contractions</div>
+</div>
+
+<div class="card" onclick="selectRhythm('vtach')">
+    <div class="card-img">
+        <img src="images/Ventricular Tachycardia.png" alt="vtach">
+    </div>
+    <div class="card-title">Ventricular Tachycardia</div>
+</div>
+
+<div class="card" onclick="selectRhythm('wandering')">
+    <div class="card-img">
+        <img src="images/Wandering Pacemaker.png" alt="wandering">
+    </div>
+    <div class="card-title">Wandering Pacemaker</div>
+</div>
+
+<div class="card" onclick="selectRhythm('mat')">
+    <div class="card-img">
+        <img src="images/Multifocal Atrial Tachycardia.png" alt="mat">
+    </div>
+    <div class="card-title">Multifocal Atrial Tachycardia</div>
+</div>
+    
+
+
+
+    <!-- <div class="card" onclick="selectRhythm('av-block-ii')">
+        <div class="card-img">⚡</div>
+        <div class="card-title">Second-degree AV Block (Mobitz I & II)</div>
+    </div>
+
+    <div class="card" onclick="selectRhythm('av-block-iii')">
+        <div class="card-img">💀</div>
+        <div class="card-title">Third-degree (Complete) AV Block</div>
+    </div> -->
+</div>
+
+
+
+<script src="ecg.js"></script>
+</body>
+</html>
