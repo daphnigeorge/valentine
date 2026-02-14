@@ -8,24 +8,21 @@
 </head>
 <body>
 
-    <div class="header">
+   <div class="header">
     <h1 id="pageTitle">Pick a Heartbeat for Your Love ❤️</h1>
     <p id="instruction">Click on a rhythm below and let the music match its beat!</p>
-    <button onclick="loginSpotify()">Connect Spotify 🎵</button>
-
+    
+    <!-- Spotify Login Button -->
+    <button id="spotifyLogin">Connect Spotify 🎵</button>
 </div>
-
-<div class="grid-container">
-    <<div class="card" onclick="selectRhythm('normal')">
-
+<div class="card" onclick="selectRhythm('normal')">
     <div class="card-img">
         <img src="images/normalsinusrhytm.png" alt="Normal Sinus Rhythm">
     </div>
     <div class="card-title">Normal Sinus Rhythm</div>
 </div>
 
-
-  <div class="card" onclick="selectRhythm('tachy')">
+<div class="card" onclick="selectRhythm('tachy')">
     <div class="card-img">
         <img src="images/sinus tachycardia.png" alt="Sinus Tachycardia">
     </div>

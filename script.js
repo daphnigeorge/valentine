@@ -96,13 +96,23 @@ if (spotifyLoginBtn) {
 
 /* --------------------- Rhythm → Spotify Track --------------------- */
 
-// Map heartbeat identifiers to Spotify URIs
+// Map heartbeat identifiers to Spotify URIs (example songs)
 const rhythmTracks = {
-    normal: "spotify:track:0T5iIrXA4p5GsubkhuBIKV?si=465dd48da7654532", // replace with NSR song
-    tachy: "spotify:track:5CQ30WqJwcep0pYcV4AMNc", // tachycardia
-    brady: "spotify:track:4RVwu0g32PAqgUiJoXOk4j", // bradycardia
-    // add your other rhythms here
+    "normal": "spotify:track:0T5iIrXA4p5GsubkhuBIKV", // Normal Sinus Rhythm ~75 BPM
+    "tachy": "spotify:track:5CQ30WqJwcep0pYcV4AMNc", // Sinus tachycardia
+    "brady": "spotify:track:4RVwu0g32PAqgUiJoXOk4j", // Sinus bradycardia
+    "accelerated": "spotify:track:2cGgO1v5cRr6YjhxXw9eN6", // Accelerated junctional rhythm
+    "atrial": "spotify:track:3MHaRzls7E4EUnkTnE7y3y", // Atrial rhythm
+    "afib": "spotify:track:6rqhFgbbKwnb9MLmUQDhG6", // Atrial fibrillation
+    "flutter": "spotify:track:1hKdDCpiI9mqz1jVHRKG0E", // Atrial flutter
+    "pac": "spotify:track:0TnOYISbd1XYRBk9myaseg", // Premature atrial contractions
+    "pvc": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp", // Premature ventricular contractions
+    "vtach": "spotify:track:6KT8x5oqZJn4Wv6jK9N6jv", // Ventricular tachycardia
+    "wandering": "spotify:track:1lDWb6b6ieDQ2xT7ewTC3G", // Wandering pacemaker
+    "multifocal": "spotify:track:3twNvmDtFQtAd5gMKedhLD", // Multifocal atrial tachycardia
+
 };
+
 let player;
 let accessToken = localStorage.getItem("spotify_access_token");
 
